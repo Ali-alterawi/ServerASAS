@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const register = require('./routers/register');
 const order = require('./routers/order');
 const project = require('./routers/project');
+const service = require('./routers/service');
 // const orderRouter = require('./routes/orderRouter');
 // const massageRouter = require('./routes/massageRouter');
 
@@ -25,6 +26,7 @@ app.use("/projects", express.static("projects"));
 app.use(register);
 app.use(order);
 app.use(project);
+app.use(service);
 
 
 

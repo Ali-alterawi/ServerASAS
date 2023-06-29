@@ -26,10 +26,14 @@ const orderFormSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    serviceProvider: {
-      type: String,
-      required: true,
+    offiecsID:{
+      type: Array,
+      required: false,
     },
+    // serviceProvider: {
+    //   type: String,
+    //   required: true,
+    // },
     kindOfService: {
       type: String,
       required: true,
