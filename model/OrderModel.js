@@ -27,13 +27,13 @@ const orderFormSchema = new mongoose.Schema(
       required: true,
     },
     offiecsID:{
-      type: Array,
+      type: mongoose.Schema.Types.ObjectId,
       required: false,
     },
-    // serviceProvider: {
-    //   type: String,
-    //   required: true,
-    // },
+    serviceProvider: {
+      type: String,
+      required: true,
+    },
     kindOfService: {
       type: String,
       required: true,

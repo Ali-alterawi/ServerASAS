@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
-const verifyJWT = require("../middleware/verifyJWT");
+
 const orderController = require("../controller/orderController");
 // Configure Multer to specify the destination and filename
 const storage = multer.diskStorage({
@@ -31,6 +31,13 @@ router.post(
     { name: "projects", maxCount: 5 },
   ]),
   orderController.handleAddForm
+);
+router.put(
+  "/order/:id",
+  upload.fields([
+    { name: "images", maxCount: 5 },
+  ]),
+  orderController.addResponseOffice
 );
 
 module.exports = router;
