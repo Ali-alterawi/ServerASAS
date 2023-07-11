@@ -10,6 +10,7 @@ router.get("/OfficeNewOrders/:id", orderController.OfficeNewOrders);
 router.get("/OfficeCompletedOrders/:id", orderController.OfficeCompletedOrders);
 router.get("/order/:id/:idOrder", orderController.oneorder);
 router.get("/orders/:id", orderController.orders);
+router.get("/orderemail/:id", orderController.orderemail);
 router.put("/order/:id/:idOrder", orderController.updatePayment);
 // router.put("/order/:id", orderController.updateorder);
 // router.delete("/order/:id", orderController.deleteorder);

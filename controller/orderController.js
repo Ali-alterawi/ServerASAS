@@ -34,6 +34,25 @@ const orders = async (req, res) => {
       is_delete: false,
     });
     res.json(order);
+    console.log(id);
+  } catch (error) {
+    console.log({ error: error.message });
+  }
+};
+
+const orderemail = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    const order = await OrderForm.find({
+      _id: id,
+      is_delete: false,
+    });
+    res.json(order);
+    console.log("666666");
+    console.log(order);
+    console.log(id);
+    console.log("999999");
   } catch (error) {
     console.log({ error: error.message });
   }
@@ -63,14 +82,14 @@ const handleAddForm = async (req, res) => {
     return res.status(400).send("No files provided");
   }
 
-  const images = files["images"]; // Array of image files
+  // const images = files["images"]; // Array of image files
   const projects = files["projects"]; // Array of report files
 
   if (!projects) {
     return res.status(400).send("projects are required");
   }
 
-  const imagePaths = images.map((image) => image.path);
+  // const imagePaths = images.map((image) => image.path);
   const projectsPaths = projects.map((project) => project.path);
 
 
@@ -84,7 +103,7 @@ const handleAddForm = async (req, res) => {
     serviceProvider: serviceProvider,
     kindOfService: kindOfService,
     projectdescription: projectdescription,
-    Images: imagePaths,
+    // Images: imagePaths,
     projects: projectsPaths,
     completed: completed,
     number: number,
@@ -277,5 +296,6 @@ module.exports = {
   OfficeCompletedOrders,
   OfficeNewOrders,
   OfficeOrdersDetails,
-  addResponseOffice
+  addResponseOffice,
+  orderemail
 };

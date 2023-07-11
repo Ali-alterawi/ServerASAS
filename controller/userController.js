@@ -110,18 +110,30 @@ const newUser = async (req, res, next) => {
   
   
     
-const updateUser = async (req, res) => {
-  const userId = req.params.id;
-  const updatedUserData = req.body;
-  const user = await User.findById(userId);
-  if (!user) {
-      return res.status(401).send('User not found');
-  }
-  const updatedUser = await User.findByIdAndUpdate(userId, updatedUserData, {
-      new: true,
-  });
-  res.json(updatedUser);
-};
+  const updateUser = async (req, res) => {
+    try {
+      const userId = req.params.id;
+      const updatedUserData = req.body;
+      const photo = req.file.path;
+  
+      const user = await User.findById(userId);
+      if (!user) {
+        return res.status(401).send('User not found');
+      }
+  
+      user.userName = updatedUserData.userName;
+      user.phone = updatedUserData.phone;
+      user.photo = photo;
+  
+      const updatedUser = await user.save();
+  
+      res.json(updatedUser);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  };
+  
 const deleteUser = async (req, res) => {
   // try {
   //     const userId = req.params.id;
