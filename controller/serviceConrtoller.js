@@ -30,6 +30,16 @@ const companiesEngineering = async (req, res) => {
         res.status(500).json({ message: "Server Error in service controller" });
       }
     };
+const companiesall = async (req, res) => {
+    try {
+        const companiesall = await User.find({ role: 0});
+        res.json(companiesall);
+        console.log(companiesall);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server Error in service controller" });
+      }
+    };
 
 
 
@@ -37,5 +47,6 @@ const companiesEngineering = async (req, res) => {
     module.exports = {
         companiesInterior,
         companiesQuantity,
-        companiesEngineering
+        companiesEngineering,
+        companiesall
       };

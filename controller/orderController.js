@@ -49,10 +49,10 @@ const orderemail = async (req, res) => {
       is_delete: false,
     });
     res.json(order);
-    console.log("666666");
-    console.log(order);
-    console.log(id);
-    console.log("999999");
+    // console.log("666666");
+    // console.log(order);
+    // console.log(id);
+    // console.log("999999");
   } catch (error) {
     console.log({ error: error.message });
   }
@@ -92,7 +92,6 @@ const handleAddForm = async (req, res) => {
   // const imagePaths = images.map((image) => image.path);
   const projectsPaths = projects.map((project) => project.path);
 
-
   const newForm = new OrderForm({
     userId: userId,
     applicantName: applicantName,
@@ -122,7 +121,7 @@ const handleAddForm = async (req, res) => {
       console.error(error);
       res.status(500).send("Error saving form");
     });
-  console.log(newForm);
+  // console.log(newForm);
 };
 const updatePayment = async (req, res) => {
   try {
@@ -174,7 +173,7 @@ const OfficeOrders = async (req, res) => {
 };
 const OfficeOrdersDetails = async (req, res) => {
   const { id } = req.params;
-  const orderId = req.query.orderId
+  const orderId = req.query.orderId;
   console.log("55555555");
   console.log(id);
   console.log(orderId);
@@ -198,7 +197,7 @@ const OfficeNewOrders = async (req, res) => {
       offiecsID: id,
       is_delete: false,
       payment: "paid",
-      completed: "new"
+      completed: "new",
     });
     res.json(orders);
   } catch (error) {
@@ -223,8 +222,8 @@ const OfficeCompletedOrders = async (req, res) => {
   }
 };
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 const addResponseOffice = async (req, res) => {
   const files = req.files;
@@ -244,7 +243,7 @@ const addResponseOffice = async (req, res) => {
     const images = files["images"]; // Array of image files
 
     // Specify the destination folder for saving the images
-    const imagesFolder = path.join(__dirname, '..', 'images'); // Adjust the path if needed
+    const imagesFolder = path.join(__dirname, "..", "images"); // Adjust the path if needed
 
     // Create the images folder if it doesn't exist
     if (!fs.existsSync(imagesFolder)) {
@@ -280,12 +279,6 @@ const addResponseOffice = async (req, res) => {
   }
 };
 
-
-
-
-
-
-
 module.exports = {
   allorder,
   oneorder,
@@ -297,5 +290,5 @@ module.exports = {
   OfficeNewOrders,
   OfficeOrdersDetails,
   addResponseOffice,
-  orderemail
+  orderemail,
 };
