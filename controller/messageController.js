@@ -17,9 +17,9 @@ const oneMessage = async (req, res) => {
     const formData = req.body;
   
     const newMessage = new Message({
-        name: formData.orderID,
+        name: formData.name,
         email: formData.email,
-        message: formData.mobile,
+        message: formData.message,
     });
     const Messages = await newMessage.save();
     res.json(Messages);
