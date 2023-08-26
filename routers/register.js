@@ -13,9 +13,7 @@ router.put("/User/:id",upload.single("photo"), userController.updateUser);
 router.delete("/User/:id", userController.deleteUser);
 router.get("/Verify_token", userController.verifyJWT);
 
-
 // router.put("/api/users/:id",upload.single("image"), userController.updateUser);
-// 
 // router.post("/User", UserController.newUser, authController.createToken);
 
 module.exports = router;

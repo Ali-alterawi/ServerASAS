@@ -11,6 +11,7 @@ const service = require("./routers/service");
 const Visa = require("./routers/Visa");
 const report = require("./routers/report");
 const message = require("./routers/message");
+const adminDashBoard = require("./routers/adminDashBoard");
 
 const dbURI =
   "mongodb+srv://aliibrahim199626:12341234@cluster0.usrf1xv.mongodb.net/ASAS";
@@ -32,6 +33,7 @@ app.use(service);
 app.use(Visa);
 app.use(report);
 app.use(message);
+app.use(adminDashBoard);
 
 module.exports = {
   server: app,

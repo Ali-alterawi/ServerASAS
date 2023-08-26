@@ -174,10 +174,10 @@ const OfficeOrders = async (req, res) => {
 const OfficeOrdersDetails = async (req, res) => {
   const { id } = req.params;
   const orderId = req.query.orderId;
-  console.log("55555555");
-  console.log(id);
-  console.log(orderId);
-  console.log("22222222");
+  // console.log("55555555");
+  // console.log(id);
+  // console.log(orderId);
+  // console.log("22222222");
   try {
     const orders = await OrderForm.find({
       _id: orderId,

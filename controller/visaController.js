@@ -3,7 +3,7 @@ const Visa = require("../model/Visa");
 const allpayment = (req, res) => {
   Visa.find()
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       res.json(data);
     })
     .catch((error) => {
@@ -23,7 +23,7 @@ const onepayment = async (req, res) => {
   });
   const payment = await newPayment.save();
   res.json(payment);
-  console.log(formData);
+  // console.log(formData);
 };
 
 module.exports = {
